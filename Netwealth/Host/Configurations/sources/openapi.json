@@ -1,0 +1,13 @@
+{
+  "SwaggerSettings": {
+    "Enable": true,
+    "Title": "Netwealth Currency Converter API",
+    "Version": "v1",
+    "Description": ".Net 6.0 WebApi",
+    "ContactName": "Shahzad Ali Khan",
+    "ContactEmail": "shahzad.ci@gmail.com",
+    "ContactUrl": "https://www.linkedin.com/in/shahzadalikhan/",
+    "License": true,
+    "LicenseName": "MIT License"
+  }
+}
