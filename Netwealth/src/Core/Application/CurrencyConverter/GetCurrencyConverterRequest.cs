@@ -1,8 +1,10 @@
-﻿using Application.Common.Exceptions;
-using Domain;
-using MediatR;
+﻿using MediatR;
 using RestSharp;
-using FixerResponseModel = Application.Common.Models.FixerResponseModel;
+using Shared;
+using Shared.Exceptions;
+using Shared.Models;
+using FixerResponseModel = Domain.FixerResponseModel;
+
 
 namespace Application.CurrencyConverter;
 
@@ -37,7 +39,7 @@ public class GetCurrencyConverterRequestHandler : IRequestHandler<GetCurrencyCon
 
             return new CurrencyConverterDto()
             {
-                Request = result.query,
+                Request = new Query { from = result.query.from,to = result.query.to, amount = result.query.amount },
                 Rate = result.info.rate,
                 Result = result.result,
                 Timestamp = result.info.timestamp

@@ -1,7 +1,7 @@
 ﻿using Infrastructure.Interfaces;
-using Query = Application.Common.Models.Query;
+using Query = Shared.Models.Query;
 
-namespace Application.CurrencyConverter;
+namespace Shared;
 
 public class CurrencyConverterDto : IDto
 {
