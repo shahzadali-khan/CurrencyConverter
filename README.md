@@ -10,7 +10,7 @@ Client takes input from user in terms of Currency Codes and amount to be convert
 - .Net 6.0 [Read More](https://docs.microsoft.com/en-us/dotnet/core/whats-new/dotnet-6) 
 - [Download](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 
-####Structure
+#### Structure
 Solution is divided into following two main componants. Relevant third-party libraries are mentioned under componant name.
 
 - Client (Blazor WASM APP)
@@ -46,7 +46,7 @@ Path: CurrencyConverter/.github/workflows/
 - **Client.yml** is used to deploy Blazor APP
 - **Host.yml** is used for WebApi deployment
 
-###URLs:
+### URLs:
 - [Client](https://netwealthcurrencyconverterclient.azurewebsites.net/)
 - [API](https://netwealthcurrencyconverterhost.azurewebsites.net/)
 - [Swagger UI](https://netwealthcurrencyconverterhost.azurewebsites.net/swagger/index.html)
