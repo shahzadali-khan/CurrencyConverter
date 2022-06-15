@@ -1,10 +1,12 @@
 # CurrencyConverter
 [![Host](https://github.com/shahzadali-khan/CurrencyConverter/actions/workflows/Host.yml/badge.svg)](https://github.com/shahzadali-khan/CurrencyConverter/actions/workflows/Host.yml) [![Client](https://github.com/shahzadali-khan/CurrencyConverter/actions/workflows/Client.yml/badge.svg)](https://github.com/shahzadali-khan/CurrencyConverter/actions/workflows/Client.yml)
 
-##Introduction
+## Introduction
 CurrencyConverter consist of a Blazor WASM client and .Net core WebAPI.Solution is developed in Microsoft .Net 6.0 LTS.
 
 Client takes input from user in terms of Currency Codes and amount to be converted and return result as per conversion rates provided by [fixer.io](https://fixer.io/). Host exposes one controller to be used by Client and under the hood consumes [fixer.io](https://fixer.io/) API.
+
+Tests are not written for solution.
 
 ## Framework
 - .Net 6.0 [Read More](https://docs.microsoft.com/en-us/dotnet/core/whats-new/dotnet-6) 
