@@ -8,7 +8,9 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+var hostUri = new Uri("https://netwealthcurrencyconverterhost.azurewebsites.net");
+
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = hostUri });
 builder.Services.AddScoped<CurrencyConverterService>();
 builder.Services.AddMudServices();
 

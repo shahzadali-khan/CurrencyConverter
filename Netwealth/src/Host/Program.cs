@@ -24,10 +24,12 @@ try
     builder.Services.AddControllers().AddFluentValidation();
     builder.Services.AddInfrastructure(builder.Configuration);
     builder.Services.AddApplication();
-     
+    builder.Services.AddSwaggerGen();
+
     var app = builder.Build();
 
     app.UseInfrastructure(builder.Configuration);
+
     app.MapEndpoints();
     app.Run();
 

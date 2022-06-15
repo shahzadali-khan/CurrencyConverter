@@ -3,7 +3,7 @@ using RestSharp;
 using Shared;
 using Shared.Exceptions;
 using Shared.Models;
-using FixerResponseModel = Domain.FixerResponseModel;
+using FixerResponseModel = Domain.Models.FixerResponseModel;
 
 
 namespace Application.CurrencyConverter;

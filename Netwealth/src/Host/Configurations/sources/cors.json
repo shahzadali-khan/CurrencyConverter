@@ -1,7 +1,7 @@
 {
   "CorsSettings": {
     "Angular": "http://localhost:4200",
-    "Blazor": "https://localhost:7199",
+    "Blazor": "https://localhost:7199,https://netwealthcurrencyconverterclient.azurewebsites.net",
     "React": "http://localhost:3000"
   }
 }

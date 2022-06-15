@@ -6,24 +6,51 @@
 
 <PageTitle> Currency Converter</PageTitle>
 
-<MudTextField @bind-Value="from" Label="Standard" Variant="Variant.Text"></MudTextField>
-<MudTextField @bind-Value="to" Label="Filled" Variant="Variant.Filled"></MudTextField>
-<MudTextField @bind-Value="amount" Label="Outlined" Variant="Variant.Outlined" Step=".2M"></MudTextField>
+<MudPaper Class="pa-16 ma-2" Elevation="3">
+    <MudSelect T="string" @bind-Value="From" Label="From" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
+        <MudSelectItem Value="@("PKR")"/>
+        <MudSelectItem Value="@("NOK")"/>
+        <MudSelectItem Value="@("GBP")"/>
+        <MudSelectItem Value="@("USD")"/>
+    </MudSelect>
 
-<MudButton Variant="Variant.Filled" OnClick="getDataConverted">Default</MudButton>
+    <MudTextField @bind-Value="Amount" Label="Amount" Variant="Variant.Outlined" Step=".2M" AnchorOrigin="Origin.CenterCenter" FullWidth="true"></MudTextField>
+
+    <MudSelect T="string" @bind-Value="To" Label="To" Variant="Variant.Outlined" AnchorOrigin="Origin.BottomCenter">
+        <MudSelectItem Value="@("PKR")"/>
+        <MudSelectItem Value="@("NOK")"/>
+        <MudSelectItem Value="@("GBP")"/>
+        <MudSelectItem Value="@("USD")"/>
+    </MudSelect>
+
+    <MudButton Variant="Variant.Filled" OnClick="GetDataConverted" EndIcon="@Icons.Material.Filled.Send" Color="Color.Primary">Go</MudButton>
+</MudPaper>
+
+
+<MudTextField Value="Result" Label="Result" Variant="Variant.Outlined" Step=".2M" AnchorOrigin="Origin.CenterCenter" FullWidth="true"></MudTextField>
 
 @code {
 
-    public string from { get; set; }
-    public string to { get; set; }
-    public decimal amount { get; set; }
+#pragma warning disable CS8618
 
-    private void getDataConverted()
+    public string From { get; set; }
+    public string To { get; set; }
+    public decimal Amount { get; set; }
+    public string? Result { get; set; }
+
+#pragma warning restore CS8618
+
+    private async Task GetDataConverted()
     {
-        var data = service.GetCurrencyConverted(from, to, amount);
+        var data = await service.GetCurrencyConverted(From, To, Amount);
 
+    // ReSharper disable once ConditionIsAlwaysTrueOrFalse
+        if (data != null)
+        {
+            Console.WriteLine(data.Rate);
+
+            Result = data.Result.ToString(CultureInfo.InvariantCulture);
+        }
     }
 
 }
-
-

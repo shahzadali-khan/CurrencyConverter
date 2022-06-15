@@ -1,4 +1,5 @@
-﻿namespace Shared.Models;
+﻿#pragma warning disable CS8618
+namespace Shared.Models;
 
 public class FixerResponseModel
 {
