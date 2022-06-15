@@ -1,9 +1,29 @@
 ﻿@page "/"
+@using Microsoft.AspNetCore.Components
+@using System.Globalization
+@using Client.Services
+@inject CurrencyConverterService service
 
-<PageTitle>Index</PageTitle>
+<PageTitle> Currency Converter</PageTitle>
 
-<h1>Hello, world!</h1>
+<MudTextField @bind-Value="from" Label="Standard" Variant="Variant.Text"></MudTextField>
+<MudTextField @bind-Value="to" Label="Filled" Variant="Variant.Filled"></MudTextField>
+<MudTextField @bind-Value="amount" Label="Outlined" Variant="Variant.Outlined" Step=".2M"></MudTextField>
 
-Welcome to your new app.
+<MudButton Variant="Variant.Filled" OnClick="getDataConverted">Default</MudButton>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+@code {
+
+    public string from { get; set; }
+    public string to { get; set; }
+    public decimal amount { get; set; }
+
+    private void getDataConverted()
+    {
+        var data = service.GetCurrencyConverted(from, to, amount);
+
+    }
+
+}
+
+
