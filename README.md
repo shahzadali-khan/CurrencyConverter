@@ -46,10 +46,10 @@ Path: CurrencyConverter/.github/workflows/
 - **Client.yml** is used to deploy Blazor APP
 - **Host.yml** is used for WebApi deployment
 
-### URLs:
-- [Client](https://netwealthcurrencyconverterclient.azurewebsites.net/)
-- [API](https://netwealthcurrencyconverterhost.azurewebsites.net/)
-- [Swagger UI](https://netwealthcurrencyconverterhost.azurewebsites.net/swagger/index.html)
+### Production/Deployed Resources:
+- [Client App](https://netwealthcurrencyconverterclient.azurewebsites.net/)
+- [WebApi](https://netwealthcurrencyconverterhost.azurewebsites.net/)
+- [WebApi Swagger UI](https://netwealthcurrencyconverterhost.azurewebsites.net/swagger/index.html)
 - [OpenAPI v3.0 file](https://netwealthcurrencyconverterhost.azurewebsites.net/swagger/v1/swagger.json)
 
 ----
