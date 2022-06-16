@@ -1,4 +1,4 @@
-name: Build and deploy .NET Core application to Function App CurrencyConverterServerlessHostFunction
+name: AzureFunctionApi
 on:
   push:
     branches:
@@ -8,7 +8,9 @@ env:
   AZURE_FUNCTIONAPP_PACKAGE_PATH: ServerlessHost\published
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 6.0.x
-  WORKING_DIRECTORY: ServerlessHost
+  WORKING_DIRECTORY: Netwealth\src\ServerlessHost
+  PROJECT_PATH: Netwealth/src/ServerlessHost/ServerlessHost.csproj
+  SOLUTION_PATH: Netwealth/Netwealth.sln
 jobs:
   build-and-deploy:
     runs-on: windows-latest
@@ -19,9 +21,9 @@ jobs:
       with:
         dotnet-version: ${{ env.DOTNET_CORE_VERSION }}
     - name: Restore
-      run: dotnet restore "${{ env.WORKING_DIRECTORY }}"
+      run: dotnet restore "${{ env.PROJECT_PATH }}"
     - name: Build
-      run: dotnet build "${{ env.WORKING_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }} --no-restore
+      run: dotnet build "${{ env.PROJECT_PATH }}" --configuration ${{ env.CONFIGURATION }} --no-restore
     - name: Publish
       run: dotnet publish "${{ env.WORKING_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }} --no-build --output "${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}"
     - name: Deploy to Azure Function App
