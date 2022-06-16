@@ -13,8 +13,8 @@ public class CurrencyConverterService : ICurrencyConverterService
 {
     public async Task<CurrencyConverterDto> GetCurrencyConverted(string @from, string to, decimal amount)
     {
-        var param = $"{@from}&from={to}&amount={amount}";
-        var url = $"https://api.apilayer.com/fixer/convert?to={param}";
+        var param = $"to={to}&from={from}&amount={amount}";
+        var url = $"https://api.apilayer.com/fixer/convert?{param}";
 
         var client = new RestClient(url);
         var restRequest = new RestRequest(url, Method.Get);
