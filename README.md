@@ -54,7 +54,18 @@ Path: CurrencyConverter/.github/workflows/
 - [WebApi](https://netwealthcurrencyconverterhost.azurewebsites.net/)
 - [WebApi Swagger UI](https://netwealthcurrencyconverterhost.azurewebsites.net/swagger/index.html)
 - [OpenAPI v3.0 file](https://netwealthcurrencyconverterhost.azurewebsites.net/swagger/v1/swagger.json)
-- [ServerlessHost API](https://currencyconverterserverlesshostfunction.scm.azurewebsites.net/)
+- [ServerlessHost API](https://currencyconverterserverlesshostfunction.azurewebsites.net/)
+
+### Sample Calls :
+
+**Path :** `{}/{fromCurrency}&{toCurrency}&{ammount}`
+
+## .Net Core API
+`https://netwealthcurrencyconverterhost.azurewebsites.net/pkr&usd&1`
+
+## Azure Function 
+`https://currencyconverterserverlesshostfunction.azurewebsites.net/api/convert/usd&pkr&1`
+
 
 ----
 Wisdom?
