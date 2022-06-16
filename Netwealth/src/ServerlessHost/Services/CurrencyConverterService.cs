@@ -1,54 +1,43 @@
 using System;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
-using Shared;
+using RestSharp;
 using Shared.Exceptions;
 using Shared.Interfaces;
 using Shared.Models;
 
 namespace ServerlessHost.Services;
 
-public class CurrencyConverterRequestHandler : ICurrencyConverterService
+public class CurrencyConverterService : ICurrencyConverterService
 {
-    private readonly HttpClient _client;
-
-    public CurrencyConverterRequestHandler(HttpClient client)
-    {
-        _client = client;
-    }
-
     public async Task<CurrencyConverterDto> GetCurrencyConverted(string @from, string to, decimal amount)
     {
-        var url = new Uri($"https://api.apilayer.com/fixer/");
-        _client.BaseAddress = url;
+        var param = $"{@from}&from={to}&amount={amount}";
+        var url = $"https://api.apilayer.com/fixer/convert?to={param}";
 
-        _client.DefaultRequestHeaders.Clear();
-        _client.DefaultRequestHeaders.Add("apikey", "TcTepQjxEvLXAb0cETb4IGbPV37BWJcb");
-
+        var client = new RestClient(url);
+        var restRequest = new RestRequest(url, Method.Get);
+        restRequest.AddHeader("apikey", "TcTepQjxEvLXAb0cETb4IGbPV37BWJcb");
 
         try
         {
-            var response = await _client.GetAsync($"convert?to={to}&from={from}&amount={amount}");
-            if (!response.IsSuccessStatusCode)
-            {
-                throw new Exception(response.ReasonPhrase);
-            }
+            RestResponse response = await client.ExecuteAsync(restRequest);
 
-            var result = await response.Content.ReadAsAsync<FixerResponseModel>().ConfigureAwait(false);
+            var result = Newtonsoft.Json.JsonConvert.DeserializeObject<FixerResponseModel>(response.Content);
 
             return new CurrencyConverterDto()
             {
-                Request = new Query { @from = result.query.@from, to = result.query.to, amount = result.query.amount },
+                Request = new Query { @from = result.query.from, to = result.query.to, amount = result.query.amount },
                 Rate = result.info.rate,
                 Result = result.result,
                 Timestamp = result.info.timestamp
 
             };
-
         }
         catch
         {
-            throw new NotFoundException($"Response cannot be generated for this request {from}");
+            throw new NotFoundException($"Response cannot be generated for this request {param}");
         }
     }
 }

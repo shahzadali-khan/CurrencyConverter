@@ -14,7 +14,7 @@ namespace ServerlessHost
         public override void Configure(IFunctionsHostBuilder builder)
         {
             builder.Services.AddHttpClient();
-            builder.Services.AddSingleton<ICurrencyConverterService>((service) => new CurrencyConverterRequestHandler(new HttpClient()));
+            builder.Services.AddSingleton<ICurrencyConverterService>((service) => new CurrencyConverterService());
         }
     }
 }

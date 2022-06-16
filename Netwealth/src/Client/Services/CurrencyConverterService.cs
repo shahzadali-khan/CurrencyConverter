@@ -1,6 +1,6 @@
 ﻿using System.Net.Http.Json;
-using Shared;
 using Shared.Interfaces;
+using Shared.Models;
 
 namespace Client.Services
 {

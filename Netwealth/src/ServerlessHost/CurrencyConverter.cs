@@ -1,6 +1,5 @@
 using System;
 using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,13 +16,11 @@ namespace ServerlessHost
     public class CurrencyConverter
     {
         private readonly ILogger<CurrencyConverter> _logger;
-        private readonly HttpClient _client;
         private ICurrencyConverterService _service;
         
 
-        public CurrencyConverter(IHttpClientFactory factory,ICurrencyConverterService service,ILogger<CurrencyConverter> log)
+        public CurrencyConverter(ICurrencyConverterService service,ILogger<CurrencyConverter> log)
         {
-            this._client = factory.CreateClient();
             this._service = service;
             this._logger = log;
         }

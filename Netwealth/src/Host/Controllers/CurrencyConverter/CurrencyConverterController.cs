@@ -1,7 +1,7 @@
 ﻿using Application.CurrencyConverter;
 using Microsoft.AspNetCore.Mvc;
 using NSwag.Annotations;
-using Shared;
+using Shared.Models;
 
 namespace Host.Controllers.CurrencyConverter
 {

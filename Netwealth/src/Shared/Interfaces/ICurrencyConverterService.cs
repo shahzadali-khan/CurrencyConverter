@@ -1,4 +1,6 @@
-﻿namespace Shared.Interfaces;
+﻿using Shared.Models;
+
+namespace Shared.Interfaces;
 
 public interface ICurrencyConverterService
 {

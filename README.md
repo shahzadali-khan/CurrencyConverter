@@ -24,11 +24,12 @@ Solution is divided into following two main componants. Relevant third-party lib
 - - FluentValidations
 - - RestSharp
 - - Serilog (Console, AspNetCore, FileSink)
+- ServerLessHost
+- - Azure Function HTTP Trigger
 
 In addition to these componants, solution contains following class libraries to maintain different important classes relevant to domain, application and infrastructure of CurrencyConverter Solution.
 
 - src/Core/Application
-- src/Core/Domain
 - src/Infrastructure
 - src/Shared
 
@@ -53,6 +54,7 @@ Path: CurrencyConverter/.github/workflows/
 - [WebApi](https://netwealthcurrencyconverterhost.azurewebsites.net/)
 - [WebApi Swagger UI](https://netwealthcurrencyconverterhost.azurewebsites.net/swagger/index.html)
 - [OpenAPI v3.0 file](https://netwealthcurrencyconverterhost.azurewebsites.net/swagger/v1/swagger.json)
+- [ServerlessHost API](https://currencyconverterserverlesshostfunction.scm.azurewebsites.net/)
 
 ----
 Wisdom?

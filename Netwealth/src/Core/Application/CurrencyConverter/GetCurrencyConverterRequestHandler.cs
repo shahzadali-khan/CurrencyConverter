@@ -1,8 +1,7 @@
-﻿using Domain.Models;
-using MediatR;
+﻿using MediatR;
 using RestSharp;
-using Shared;
 using Shared.Exceptions;
+using Shared.Models;
 using Query = Shared.Models.Query;
 
 namespace Application.CurrencyConverter;
@@ -20,7 +19,7 @@ public class GetCurrencyConverterRequestHandler : IRequestHandler<GetCurrencyCon
         {
             RestResponse response = await client.ExecuteAsync(restRequest, cancellationToken);
 
-            var result = Newtonsoft.Json.JsonConvert.DeserializeObject<FixerResponseModel>(response.Content);
+            var result = Newtonsoft.Json.JsonConvert.DeserializeObject<Shared.Models.FixerResponseModel>(response.Content);
 
             return new CurrencyConverterDto()
             {
